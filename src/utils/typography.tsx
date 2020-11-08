@@ -5,7 +5,13 @@ theme.overrideThemeStyles = () => {
   return {
     "a": {
       'background-image': `none`,
+      'text-shadow': 'none',
+      'color':'#E1E1E1 !important'
     },
+    "body": {
+      'background-color': `#151515`,
+      'color':'#E1E1E1 !important'
+    }
   }
 }
 

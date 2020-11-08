@@ -9,7 +9,7 @@ import * as React from 'react';
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-import { rhythm } from "../utils/typography"
+import { rhythm } from "../../utils/typography"
 
 const _Container = styled.div`
   display: flex;

@@ -1,10 +1,18 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Bio from "../components/Organisms/bio"
+import Layout from "../components/Atoms/layout"
+import SEO from "../components/Organisms/seo"
+import Article from '../components/Organisms/article'
+
 import { rhythm } from "../utils/typography"
+import styled from "styled-components"
+
+const _Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -14,25 +22,21 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Bio />
+      <_Container>
       {posts.map(({ node }) => {
+        console.log(node)
         const title = node.frontmatter.title || node.fields.slug
         return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-          </article>
+          <Article
+            key={node.fields.slug}
+            date={node.frontmatter.date}
+            title={node.frontmatter.title}
+            path={node.fields.slug}
+            image={node.frontmatter.avatar ? node.frontmatter.avatar.childImageSharp.fluid : ''}
+          />
         )
       })}
+      </_Container>
     </Layout>
   )
 }
@@ -56,6 +60,13 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "YYYY/MM/DD")
             title
+            avatar {
+              childImageSharp {
+                fluid(maxWidth: 1000, quality: 90, maxHeight: 700) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
+              }
+            }
           }
         }
       }
