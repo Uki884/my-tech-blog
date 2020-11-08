@@ -19,6 +19,13 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                avatar {
+                  childImageSharp {
+                    fluid(maxWidth: 1000, quality: 90, maxHeight: 700) {
+                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                    }
+                  }
+                }
               }
             }
           }
@@ -49,6 +56,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
+
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions

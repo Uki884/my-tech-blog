@@ -14,7 +14,6 @@ const _Content = styled.main`
 `
 
 const _HeaderTitle = styled.h1<{scale: string}>`
-  font-size: 40px;
   margin-bottom: ${rhythm(1.5)};
   margin-top: 0;
   transform: ${props => props.scale };
@@ -34,10 +33,7 @@ const Layout = ({ location, title, children }: { location: Location, title: stri
       }}
     >
       <_HeaderTitle scale={location.pathname === rootPath ? 'scale(1)' : 'scale(1)'}>
-        <Link
-          style={{ boxShadow: `none` }} to={`/`}>
-          {title}
-        </Link>
+        <Link to={`/`}> {title} </Link>
       </_HeaderTitle>
       <_Content>{children}</_Content>
       <_Footer>

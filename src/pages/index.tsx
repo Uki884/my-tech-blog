@@ -14,17 +14,17 @@ const _Container = styled.div`
   flex-wrap: wrap;
 `
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex = ({ data, location }: { data: any, location: Location }) => {
+  console.log(data)
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
-
+  const noImage = data.file
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Bio />
       <_Container>
-      {posts.map(({ node }) => {
-        console.log(node)
+      {posts.map(({ node }: any) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
           <Article
@@ -32,7 +32,7 @@ const BlogIndex = ({ data, location }) => {
             date={node.frontmatter.date}
             title={node.frontmatter.title}
             path={node.fields.slug}
-            image={node.frontmatter.avatar ? node.frontmatter.avatar.childImageSharp.fluid : ''}
+            image={node.frontmatter.avatar ? node.frontmatter.avatar.childImageSharp.fluid : noImage}
           />
         )
       })}
@@ -43,6 +43,16 @@ const BlogIndex = ({ data, location }) => {
 
 export default BlogIndex
 
+//　画像を読み込む場合
+// file(relativePath: { regex: "/noimage.png/" }) {
+//   childImageSharp {
+//     # Specify the image processing specifications right in the query.
+//     # Makes it trivial to update as your page's design changes.
+//     fixed(width: 400, height: 700) {
+//       ...GatsbyImageSharpFixed
+//     }
+//   }
+// }
 export const pageQuery = graphql`
   query {
     site {

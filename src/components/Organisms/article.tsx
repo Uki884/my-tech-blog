@@ -1,9 +1,14 @@
 import * as React from 'react';
 import styled from "styled-components"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 import Image from "gatsby-image"
 import { rhythm } from "../../utils/typography"
 import BaseCard from '../Molecules/BaseCard'
+
+const movePage = (path: string) => {
+    console.log("発火")
+    navigate(path); //navigate to edit page
+}
 
 const _Article = styled.article`
     position: relative;
@@ -30,7 +35,7 @@ const Article = (props: any) => {
     const { title, date, path, image } = props
     return (
     <BaseCard>
-        <_Article>
+        <_Article onClick={() => movePage(path)}>
             <Image fluid={image} />
             <_ArticleBody>
                 <_ArticleTitle>
@@ -39,7 +44,7 @@ const Article = (props: any) => {
                 <_ArticleFooter>
                     {date}
                 </_ArticleFooter>
-                </_ArticleBody>
+            </_ArticleBody>
         </_Article>
     </BaseCard>
     )
