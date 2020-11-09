@@ -1,7 +1,7 @@
 ---
 title: gatsbyでブログを作ってみた
 date: "2020-11-08"
-avatar: ./noimage.png
+image: ./noimage.png
 ---
 
 はじめまして、ハヤシと申します。

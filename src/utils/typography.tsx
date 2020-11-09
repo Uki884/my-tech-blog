@@ -21,6 +21,7 @@ theme.googleFonts.push(
     styles: ['400'],
   }
 )
+theme.headerColor = '#E1E1E1'
 theme.bodyFontFamily = ['Noto Sans JP', 'Roboto', 'serif']
 
 const typography = new Typography(theme)

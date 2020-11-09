@@ -5,8 +5,6 @@ import { rhythm, scale } from "../../utils/typography"
 import styled from "styled-components"
 
 const _Footer = styled.footer`
-  position: fixed;
-  bottom: 20px;
   font-size: 14px;
 `
 const _Content = styled.main`
@@ -28,7 +26,7 @@ const Layout = ({ location, title, children }: { location: Location, title: stri
       style={{
         marginLeft: `auto`,
         marginRight: `auto`,
-        maxWidth: rhythm(24),
+        maxWidth: rhythm(32),
         padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
       }}
     >

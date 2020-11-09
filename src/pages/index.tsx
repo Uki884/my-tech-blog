@@ -32,7 +32,7 @@ const BlogIndex = ({ data, location }: { data: any, location: Location }) => {
             date={node.frontmatter.date}
             title={node.frontmatter.title}
             path={node.fields.slug}
-            image={node.frontmatter.avatar ? node.frontmatter.avatar.childImageSharp.fluid : noImage}
+            image={node.frontmatter.image ? node.frontmatter.image.childImageSharp.fluid : noImage}
           />
         )
       })}
@@ -70,9 +70,9 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "YYYY/MM/DD")
             title
-            avatar {
+            image {
               childImageSharp {
-                fluid(maxWidth: 1000, quality: 90, maxHeight: 700) {
+                fluid(quality: 90, maxHeight: 1000) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
