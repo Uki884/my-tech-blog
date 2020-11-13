@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -31,11 +31,7 @@ const Bio = () => {
   `)
 
   const { author, social } = data.site.siteMetadata
-  return (
-    <_Container
-    >
-    </_Container>
-  )
+  return <_Container></_Container>
 }
 
 export default Bio

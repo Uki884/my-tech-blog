@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/Organisms/bio"
-import Layout from "../components/Atoms/layout"
+import Layout from "../components/Organisms/layout"
 import SEO from "../components/Organisms/seo"
 import { rhythm, scale } from "../utils/typography"
 
@@ -32,18 +32,13 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             style={{
               marginTop: rhythm(1),
               marginBottom: rhythm(1),
-              color: `#B7B7B7`
+              color: `#B7B7B7`,
             }}
           >
             {post.frontmatter.title}
           </h1>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
         <footer>
           <Bio />
         </footer>
