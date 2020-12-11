@@ -27,7 +27,7 @@ const BlogIndex = ({ data, location }: { data: any; location: Location }) => {
               date={node.frontmatter.date}
               title={node.frontmatter.title}
               path={node.fields.slug}
-              image={node.frontmatter.image.childImageSharp.fluid}
+              image={node.frontmatter.image.childImageSharp.fixed}
             />
           )
         })}
@@ -67,8 +67,8 @@ export const pageQuery = graphql`
             title
             image {
               childImageSharp {
-                fluid(quality: 90, maxHeight: 1000) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                fixed(width: 320) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }

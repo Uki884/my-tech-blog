@@ -17,6 +17,13 @@ const _Article = styled.article`
 const _ArticleBody = styled.div`
   padding: 8px;
 `
+
+const _ArticleImage = styled.div`
+  .gatsby-image-wrapper {
+    width: 320px !important;
+  }
+`
+
 const _ArticleFooter = styled.div`
   position: absolute;
   bottom: 8px;
@@ -35,7 +42,9 @@ const Article = (props: any) => {
   return (
     <BaseCard>
       <_Article onClick={() => movePage(path)}>
-        <Image fluid={image} />
+        <_ArticleImage>
+          <Image fixed={image} />
+        </_ArticleImage>
         <_ArticleBody>
           <_ArticleTitle>{title}</_ArticleTitle>
           <_ArticleFooter>{date}</_ArticleFooter>
