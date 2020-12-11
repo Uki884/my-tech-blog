@@ -4,10 +4,20 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/Organisms/bio"
 import Layout from "../components/Organisms/layout"
 import SEO from "../components/Organisms/seo"
+import Image from "gatsby-image"
+import styled from "styled-components"
 import { rhythm, scale } from "../utils/typography"
+
+
+const _PostImage = styled.div`
+  margin: 24px;
+  display: flex;
+  justify-content: center;
+`
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
+  const image = post.frontmatter.image.childImageSharp.fixed
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
 
@@ -38,6 +48,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             {post.frontmatter.title}
           </h1>
         </header>
+        <_PostImage>
+          <Image fixed={image} />
+        </_PostImage>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <footer>
           <Bio />
@@ -90,6 +103,13 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "YYYY/MM/DD")
+        image {
+          childImageSharp {
+            fixed(width: 600) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
       }
     }
   }
