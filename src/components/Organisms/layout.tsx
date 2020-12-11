@@ -7,10 +7,12 @@ import styled from "styled-components"
 const _Footer = styled.footer`
   font-size: 14px;
   text-align: center;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 `
 const _Content = styled.main`
   margin-top: 60px;
-  height: 100vh;
 `
 const _Header = styled.div`
   width: 100%;
@@ -41,6 +43,7 @@ const Layout = ({
         marginLeft: `auto`,
         marginRight: `auto`,
         maxWidth: rhythm(32),
+        position: 'relative',
         padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
       }}
     >

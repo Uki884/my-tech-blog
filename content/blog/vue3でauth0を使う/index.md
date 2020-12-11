@@ -2,6 +2,7 @@
 title: Auth0をVue3で使う
 date: "2020-11-09"
 image: ./vue3-auth0.png
+category: frontend
 ---
 
 今回はvue3 + typescript + composition-apiで認証を作ってみようと思います。
