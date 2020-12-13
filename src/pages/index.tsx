@@ -21,13 +21,14 @@ const BlogIndex = ({ data, location }: { data: any; location: Location }) => {
       <_Container>
         {posts.map(({ node }: any) => {
           const title = node.frontmatter.title || node.fields.slug
+          const image = node.frontmatter.image ? node.frontmatter.image.childImageSharp.fixed: ''
           return (
             <Article
               key={node.fields.slug}
               date={node.frontmatter.date}
               title={node.frontmatter.title}
               path={node.fields.slug}
-              image={node.frontmatter.image.childImageSharp.fixed}
+              image={image}
             />
           )
         })}
