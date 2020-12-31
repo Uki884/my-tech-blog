@@ -12,7 +12,6 @@ const _Footer = styled.footer`
   width: 100%;
 `
 const _Content = styled.main`
-  margin-top: 60px;
 `
 const _Header = styled.div`
   width: 100%;

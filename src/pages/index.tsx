@@ -8,6 +8,7 @@ import Article from "../components/Organisms/article"
 const _Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `
 
 const BlogIndex = ({ data, location }: { data: any; location: Location }) => {
